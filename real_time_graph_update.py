@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+from flask import Flask,render_template,url_for
+
+>>>>>>> c98cbb3205d0b9a83b24c2c0762dd3868c9c9c97
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -24,7 +29,18 @@ external_stylesheets = [
     }
 ]
 
+<<<<<<< HEAD
 app = dash.Dash(external_scripts=external_scripts,external_stylesheets=external_stylesheets)
+=======
+server = Flask(__name__)
+
+app = dash.Dash(__name__,server=server,routes_pathname_prefix='/dash/',
+    external_scripts=external_scripts,external_stylesheets=external_stylesheets)
+
+@server.route('/dash/pie')
+def index():
+    return render_template("index.html")
+>>>>>>> c98cbb3205d0b9a83b24c2c0762dd3868c9c9c97
 
 app.layout=html.Div(className="card col-md-5 ml-auto mt-3",children=[
             html.Div(id='first_graph',children=[
